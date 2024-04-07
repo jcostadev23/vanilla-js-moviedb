@@ -1,0 +1,72 @@
+body {
+  background-color: black;
+}
+
+.container {
+  background-image: url('./img/showcase-bg.jpg');
+  padding: 20px;
+}
+
+.container h3 {
+  text-align: center;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  height: 50px;
+  color: white;
+}
+
+.header-div span:nth-of-type(1) {
+  color: rgb(255, 213, 0);
+  margin-right: 10px;
+}
+
+.swiper {
+  margin: 20px;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(54, 53, 53);
+  width: 300px;
+}
+
+.img-swiper {
+  width: 100%;
+}
+
+.average-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.score-average {
+  padding: 5px;
+  color: white;
+}
+
+.estrela {
+  color: yellow;
+  font-size: 24px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 0.5;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
