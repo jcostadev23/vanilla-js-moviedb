@@ -16,6 +16,8 @@ function startSwiper() {
   });
 }
 
+console.log("costa")
+
 function updateSlides() {
   if (typeof Swiper !== undefined) {
     startSwiper();
