@@ -1,9 +1,10 @@
 let swiper;
 
 function startSwiper() {
+  const slidesPerView = window.innerWidth <= 760 ? 2 : 4
   swiper = new Swiper('.swiper', {
     // Optional parameters
-    slidesPerView: 4,
+    slidesPerView: slidesPerView,
     spaceBetween: 20,
     direction: 'horizontal',
     loop: true,
@@ -16,21 +17,4 @@ function startSwiper() {
   });
 }
 
-console.log("costa")
-
-function updateSlides() {
-  if (typeof Swiper !== undefined) {
-    startSwiper();
-  } else {
-    document.addEventListener('DOMContentLoaded', startSwiper);
-  }
-
-  if (window.innerWidth <= 760) {
-    swiper.params.slidesPerView = 2;
-  }
-
-  swiper.update();
-}
-
-updateSlides();
-window.addEventListener('resize', updateSlides);
+window.addEventListener('resize', startSwiper);
