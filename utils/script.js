@@ -1,8 +1,8 @@
-async function getMovies() {
+async function getMovies(url) {
   try {
-    const resp = await fetch(config.moviesUrl + config.api_key);
+    const resp = await fetch(url + config.api_key);
     if (!resp.ok) {
-      throw new Error('Error on fetching Movies' + resp.statusText);
+      throw new Error("Error on fetching Movies" + resp.statusText);
     }
 
     const data = await resp.json();

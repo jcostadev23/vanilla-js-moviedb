@@ -72,13 +72,15 @@ h3 {
 }
 
 .movie-card {
+  text-align: start;
   max-width: 300px;
-  background-color: rgba(5, 5, 18, 0.999);
-  padding: 10px;
+  background-color: rgb(18, 47, 84);
+  padding: 5px;
   border-radius: 6px;
 }
 
 .movie-name {
+  margin-top: 10px;
   color: white;
   font-weight: bold;
 }
@@ -92,5 +94,9 @@ h3 {
 @media (max-width: 768px) {
   .container {
     width: 100%;
+  }
+
+  .movie-list {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
