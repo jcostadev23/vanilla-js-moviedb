@@ -1,0 +1,46 @@
+.search-form {
+  display: block;
+  text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: whitesmoke;
+}
+
+.button-group input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid whitesmoke;
+  outline: none;
+}
+
+.button-group input[type="checkbox"]:checked {
+  border: 2px solid rgb(5, 57, 5);
+  background-color: #3acc3d;
+}
+
+.input-group input {
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  background-color: transparent;
+  width: 400px;
+  margin: 10px 5px;
+}
+
+.search-button {
+  border: none;
+  color: black;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 10px 30px;
+  background-color: rgb(255, 221, 0);
+}
