@@ -8,7 +8,12 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <link rel="stylesheet" href="resetStyles.css" />
+    <link rel="stylesheet" href="searchStyles.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -32,6 +37,27 @@
         <div class="swiper-button-next"></div>
       </div>
     </div>
+    <form id="search-form" class="search-form">
+      <div class="button-group">
+        <input type="checkbox" id="movie-checkBox" name="movie-checkBox" />
+        <label for="movies-checkbox">Movies</label>
+        <input
+          type="checkbox"
+          id="tv-shows-checkBox"
+          name="tv-shows-checkBox"
+        />
+        <label for="tv-shows">TV Shows</label>
+      </div>
+      <div class="input-group">
+        <input
+          type="text"
+          id="inputField"
+          placeholder="Search Movies"
+          name="inputField"
+        />
+        <button class="search-button"><i class="fas fa-search"></i></button>
+      </div>
+    </form>
     <div class="sub-container">
       <h3>Popular Movies</h3>
       <ul class="movie-list"></ul>
@@ -39,8 +65,10 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="./components/swiper.js"></script>
     <script src="./utils/apiDetails.js"></script>
+    <script src="./utils/validation.js"></script>
     <script src="./components/headerCard.js"></script>
     <script src="./components/movieCard.js"></script>
+    <script src="./components/inputSearch.js"></script>
     <script src="./utils/script.js"></script>
     <script src="./scriptHeader.js"></script>
     <script src="main.js"></script>

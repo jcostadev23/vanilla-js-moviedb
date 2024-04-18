@@ -83,11 +83,6 @@ h3 {
   font-weight: bold;
 }
 
-.movie-release {
-  color: white;
-  margin-top: 10px;
-}
-
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .container {
