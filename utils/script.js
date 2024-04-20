@@ -1,6 +1,8 @@
-async function getMovies() {
+async function getMovies(option) {
   try {
-    const resp = await fetch(config.moviesUrl + config.api_key);
+    const resp = await fetch(
+      `${config.generalUrl}movie?api_key=${config.api_key}&sort_by=${option}`
+    );
     if (!resp.ok) {
       throw new Error("Error on fetching Movies" + resp.statusText);
     }
@@ -31,7 +33,7 @@ async function getMoviesDetails() {
 }
 
 async function getSelectedOptions(options) {
-  const url = `${config.searchUrl}${options.selected}?query=${options.title}&api_key=${config.api_key}`;
+  const url = validateUrl(options);
   try {
     const response = await fetch(url);
     if (!response.ok) {

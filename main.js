@@ -2,16 +2,16 @@ const ul = document.querySelector(".movie-list");
 const mainSlider = document.getElementById("swiper-wrapper");
 
 async function displayHeader() {
-  const movies = await getMovies();
+  const movies = await getMovies(config.sort_by_now_playing);
 
-  movies.forEach((movie) => {
+  movies?.forEach((movie) => {
     mainSlider.appendChild(headerCard(movie.poster_path, movie.vote_average));
   });
 }
 
 async function popularMovies() {
-  const movies = await getMovies();
-  movies.forEach((movie) => {
+  const movies = await getMovies(config.sort_by_popularity);
+  movies?.forEach((movie) => {
     ul.appendChild(
       movieCard(movie.poster_path, movie.title, movie.release_date)
     );
@@ -21,7 +21,7 @@ async function popularMovies() {
 async function searchOptions(formValue) {
   const movies = await getSelectedOptions(formValue);
   ul.innerHTML = "";
-  movies.results.forEach((movie) => {
+  movies?.results.forEach((movie) => {
     ul.appendChild(
       movieCard(movie.poster_path, movie.title, movie.release_date)
     );
