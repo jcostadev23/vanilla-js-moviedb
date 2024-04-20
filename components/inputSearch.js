@@ -1,4 +1,5 @@
 const input = document.getElementById("inputField");
+const listTitle = document.getElementById("list-title");
 const inputForm = document.getElementById("search-form");
 const movieCheckBox = document.getElementById("movie-checkBox");
 const tvShowsCheckbox = document.getElementById("tv-shows-checkBox");
@@ -8,15 +9,18 @@ const formValue = {};
 function submitForm(e) {
   e.preventDefault();
 
-  if (isEmpty(formValue) || formValue.tv_shows) {
+  if (isEmpty(formValue)) {
     return;
   }
 
   formValue.title = input.value;
-  formValue.selected = formValue.movie ? "movie" : "tv_shows";
+  formValue.selected = formValue?.movie ? "movie" : "tv";
   input.value = "";
   tvShowsCheckbox.checked = false;
   movieCheckBox.checked = false;
+  listTitle.innerText = `You selected: ${
+    formValue.selected === "movie" ? "Movies" : "Tv_Shows"
+  }`;
   searchOptions(formValue);
 }
 
