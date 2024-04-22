@@ -71,16 +71,20 @@ h3 {
   margin: 20px;
 }
 
-.movie-card {
+.main-card {
   max-width: 300px;
   background-color: rgba(5, 5, 18, 0.999);
   padding: 10px;
   border-radius: 6px;
 }
 
-.movie-name {
+.name {
   color: white;
   font-weight: bold;
+}
+
+.release_date {
+  color: white;
 }
 
 /* Responsive breakpoints */

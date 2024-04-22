@@ -1,22 +1,22 @@
-function movieCard(imgUrl, title, release) {
+function mainCard(imgUrl, title, release) {
   const div = document.createElement("div");
-  div.classList.add("movie-card");
+  div.classList.add("main-card");
   div.appendChild(image(imgUrl));
-  div.appendChild(movieTitle(title));
-  div.appendChild(movieRelease(release));
+  div.appendChild(displayTitle(title));
+  div.appendChild(displayReleaseDate(release));
   return div;
 }
 
-function movieTitle(details) {
+function displayTitle(details) {
   const div = document.createElement("div");
-  div.classList.add("movie-name");
+  div.classList.add("name");
   div.textContent = details;
   return div;
 }
 
-function movieRelease(release) {
+function displayReleaseDate(release) {
   const span = document.createElement("span");
-  span.classList.add("movie-release");
-  span.textContent = `Release: ${release}`;
+  span.classList.add("release_date");
+  span.textContent = `Release: ${formatDate(release)}`;
   return span;
 }

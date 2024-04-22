@@ -1,10 +1,10 @@
-async function getMovies(option) {
+async function getMoviesAndTvSHows(option) {
   try {
     const resp = await fetch(
       `${config.generalUrl}movie?api_key=${config.api_key}&sort_by=${option}`
     );
     if (!resp.ok) {
-      throw new Error("Error on fetching Movies" + resp.statusText);
+      throw new Error("Error on fetching API" + resp.statusText);
     }
 
     const data = await resp.json();
@@ -16,7 +16,7 @@ async function getMovies(option) {
 }
 
 async function getMoviesDetails() {
-  const movies = await getMovies();
+  const movies = await getMoviesAndTvSHows();
 
   const listDetails = await Promise.all(
     movies.map(async (movie, index) => {

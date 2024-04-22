@@ -2,29 +2,31 @@ const ul = document.querySelector(".movie-list");
 const mainSlider = document.getElementById("swiper-wrapper");
 
 async function displayHeader() {
-  const movies = await getMovies(config.sort_by_now_playing);
+  const results = await getMoviesAndTvSHows(config.sort_by_now_playing);
 
-  movies?.forEach((movie) => {
+  results?.forEach((movie) => {
     mainSlider.appendChild(headerCard(movie.poster_path, movie.vote_average));
   });
 }
 
 async function popularMovies() {
-  const movies = await getMovies(config.sort_by_popularity);
-  movies?.forEach((movie) => {
+  const results = await getMoviesAndTvSHows(config.sort_by_popularity);
+  results?.forEach((movie) => {
     ul.appendChild(
-      movieCard(movie.poster_path, movie.title, movie.release_date)
+      mainCard(movie.poster_path, movie.title, movie.release_date)
     );
   });
 }
 
 async function searchOptions(formValue) {
-  const movies = await getSelectedOptions(formValue);
+  const results = await getSelectedOptions(formValue);
   ul.innerHTML = "";
-  movies?.results.forEach((movie) => {
-    ul.appendChild(
-      movieCard(movie.poster_path, movie.title, movie.release_date)
-    );
+  results?.results.forEach((item) => {
+    const title = item.title ? item.title : item.name;
+    const release_date = item.release_date
+      ? item.release_date
+      : item.first_air_date;
+    ul.appendChild(mainCard(item.poster_path, title, release_date));
   });
 }
 
