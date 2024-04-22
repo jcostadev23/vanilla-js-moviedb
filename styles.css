@@ -64,7 +64,7 @@ h3 {
   opacity: 0.5;
 }
 
-.movie-list {
+.main-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -93,7 +93,7 @@ h3 {
     width: 100%;
   }
 
-  .movie-list {
+  .main-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }

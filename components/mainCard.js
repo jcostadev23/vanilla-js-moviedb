@@ -1,5 +1,6 @@
-function mainCard(imgUrl, title, release) {
+function mainCard(id, imgUrl, title, release) {
   const div = document.createElement("div");
+  div.dataset.id = id;
   div.classList.add("main-card");
   div.appendChild(image(imgUrl));
   div.appendChild(displayTitle(title));
