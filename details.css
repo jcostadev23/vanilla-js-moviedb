@@ -1,0 +1,20 @@
+body {
+  background-color: #272343;
+}
+
+h2 {
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.details-list {
+  margin: 10px;
+}

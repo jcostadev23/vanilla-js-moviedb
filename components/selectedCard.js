@@ -1,12 +1,10 @@
 const list = document.querySelector(".main-list");
 
-async function getDetails(id) {
-  const resp = await getMoviesDetails(id);
-}
-
 function getIds() {
   Array.from(list.children).forEach((card) => {
-    card.addEventListener("click", () => getDetails(card.dataset.id));
+    card.addEventListener("click", () => {
+      window.location.href = "details.html?id=" + card.dataset.id;
+    });
   });
 }
 
