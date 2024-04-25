@@ -5,7 +5,9 @@ async function displayHeader() {
   const results = await getMoviesAndTvSHows(config.sort_by_now_playing);
 
   results?.forEach((movie) => {
-    mainSlider.appendChild(headerCard(movie.poster_path, movie.vote_average));
+    mainSlider.appendChild(
+      headerCard(movie.id, movie.poster_path, movie.vote_average)
+    );
   });
 }
 
@@ -33,3 +35,9 @@ async function searchOptions(formValue) {
 displayHeader();
 startSwiper();
 popularMovies();
+
+document.addEventListener("DOMContentLoaded", () =>
+  setTimeout(() => {
+    getIds(mainSlider.children), getIds(ul.children);
+  }, 500)
+);
