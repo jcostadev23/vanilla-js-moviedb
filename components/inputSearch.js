@@ -14,6 +14,10 @@ const formValue = {
   title: title,
 };
 
+input.value = formValue.title;
+movieCheckBox.checked = formValue.selected === "movie";
+tvShowsCheckbox.checked = formValue.selected === "tv";
+
 function submitForm(e) {
   e.preventDefault();
 
