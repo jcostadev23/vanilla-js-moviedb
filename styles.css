@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(10, 10, 21, 0.999);
+  background-color: #272343;
 }
 
 .container {
@@ -64,7 +64,7 @@ h3 {
   opacity: 0.5;
 }
 
-.movie-list {
+.main-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
@@ -73,7 +73,7 @@ h3 {
 
 .main-card {
   max-width: 300px;
-  background-color: rgba(5, 5, 18, 0.999);
+  background-color: #163172;
   padding: 10px;
   border-radius: 6px;
 }
@@ -83,7 +83,9 @@ h3 {
   font-weight: bold;
 }
 
-.release_date {
+.release_date,
+.overview {
+  padding: 10px 0;
   color: white;
 }
 
@@ -93,7 +95,7 @@ h3 {
     width: 100%;
   }
 
-  .movie-list {
+  .main-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }

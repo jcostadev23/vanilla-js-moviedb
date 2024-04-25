@@ -1,4 +1,5 @@
 .search-form {
+  margin: 10px;
   display: block;
   text-align: center;
 }
@@ -34,6 +35,7 @@
   background-color: transparent;
   width: 400px;
   margin: 10px 5px;
+  border: 1px solid grey;
 }
 
 .search-button {

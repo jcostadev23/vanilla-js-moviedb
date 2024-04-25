@@ -15,21 +15,11 @@ async function getMoviesAndTvSHows(option) {
   }
 }
 
-async function getMoviesDetails() {
-  const movies = await getMoviesAndTvSHows();
-
-  const listDetails = await Promise.all(
-    movies.map(async (movie, index) => {
-      const url = `${config.movieDetails}${movie.id}?api_key=${config.api_key}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      return data;
-    })
-  );
-
-  console.log(
-    movies.map((movie, index) => ({ ...movie, xixi: listDetails[index] }))
-  );
+async function getMoviesDetails(id) {
+  const url = `${config.movieDetails}${id}?api_key=${config.api_key}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
 }
 
 async function getSelectedOptions(options) {

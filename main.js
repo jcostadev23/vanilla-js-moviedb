@@ -1,4 +1,4 @@
-const ul = document.querySelector(".movie-list");
+const ul = document.querySelector(".main-list");
 const mainSlider = document.getElementById("swiper-wrapper");
 
 async function displayHeader() {
@@ -13,7 +13,7 @@ async function popularMovies() {
   const results = await getMoviesAndTvSHows(config.sort_by_popularity);
   results?.forEach((movie) => {
     ul.appendChild(
-      mainCard(movie.poster_path, movie.title, movie.release_date)
+      mainCard(movie.id, movie.poster_path, movie.title, movie.release_date)
     );
   });
 }
@@ -26,7 +26,7 @@ async function searchOptions(formValue) {
     const release_date = item.release_date
       ? item.release_date
       : item.first_air_date;
-    ul.appendChild(mainCard(item.poster_path, title, release_date));
+    ul.appendChild(mainCard(item.id, item.poster_path, title, release_date));
   });
 }
 
