@@ -1,8 +1,7 @@
 async function getMoviesAndTvSHows(option) {
+  const new_url = validateUrl(option);
   try {
-    const resp = await fetch(
-      `${config.generalUrl}movie?api_key=${config.api_key}&sort_by=${option}`
-    );
+    const resp = await fetch(new_url);
     if (!resp.ok) {
       throw new Error("Error on fetching API" + resp.statusText);
     }

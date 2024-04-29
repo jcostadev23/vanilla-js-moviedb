@@ -5,14 +5,15 @@ const listTitle = document.getElementById("list-title");
 const inputForm = document.getElementById("search-form");
 const movieCheckBox = document.getElementById("movie-checkBox");
 const tvShowsCheckbox = document.getElementById("tv-shows-checkBox");
-const headerDiv = document.getElementById("header-div");
 
 const selected = searchParams.get("selected");
 const title = searchParams.get("title");
+const page = searchParams.get("page");
 
 const formValue = {
-  selected: selected,
-  title: title,
+  selected,
+  title,
+  page,
 };
 
 input.value = formValue.title;
@@ -57,10 +58,5 @@ movieCheckBox.addEventListener("change", () => {
 });
 
 inputForm.addEventListener("submit", submitForm);
-Array.from(headerDiv.children).forEach((child) => {
-  child.addEventListener("click", (e) => {
-    formValue.selected = e.target.id;
-    submitForm(e);
-  });
-});
+
 document.addEventListener("DOMContentLoaded", submitForm);

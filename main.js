@@ -1,8 +1,13 @@
+const url_details = new URL(window.location.href);
+const searchP_arams = new URLSearchParams(url_details.search);
 const ul = document.querySelector(".main-list");
 const mainSlider = document.getElementById("swiper-wrapper");
+const headerDiv = document.getElementById("header-div");
 
-async function displayHeader() {
-  const results = await getMoviesAndTvSHows(config.sort_by_now_playing);
+const select1 = searchParams.get("selected");
+
+async function displayHeader(params) {
+  const results = await getMoviesAndTvSHows(params);
 
   results?.results.forEach((movie) => {
     mainSlider.appendChild(
@@ -11,8 +16,8 @@ async function displayHeader() {
   });
 }
 
-async function popularMovies() {
-  const results = await getMoviesAndTvSHows(config.sort_by_popularity);
+async function popularMovies(params) {
+  const results = await getMoviesAndTvSHows(params);
   results?.results.forEach((movie) => {
     ul.appendChild(
       mainCard(movie.id, movie.poster_path, movie.title, movie.release_date)
@@ -32,12 +37,19 @@ async function searchOptions(formValue) {
   });
 }
 
-displayHeader();
-startSwiper();
-popularMovies();
+Array.from(headerDiv.children).forEach((child) => {
+  child.addEventListener("click", (e) => {
+    window.location.href = `index.html?selected=${e.target.id}`;
+  });
+});
 
-document.addEventListener("DOMContentLoaded", () =>
+document.addEventListener("DOMContentLoaded", () => {
+  const selectOptions = select1 || "movie";
+  startSwiper();
+  popularMovies({ selected: selectOptions });
+  displayHeader({ selected: selectOptions });
+
   setTimeout(() => {
     getIds(mainSlider.children), getIds(ul.children);
-  }, 500)
-);
+  }, 500);
+});
