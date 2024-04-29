@@ -6,4 +6,5 @@ const config = {
   searchUrl: "https://api.themoviedb.org/3/search/",
   sort_by_popularity: "popularity.dec",
   sort_by_now_playing: "now-playing.dec",
+  page: "page=",
 };
