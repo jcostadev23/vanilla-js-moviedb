@@ -9,7 +9,7 @@ async function getMoviesAndTvSHows(option) {
 
     const data = await resp.json();
 
-    return data.results;
+    return data;
   } catch (error) {
     console.log(error);
   }

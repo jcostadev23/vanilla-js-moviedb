@@ -104,6 +104,17 @@ h3 {
   color: white;
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.btn-pagination {
+  color: whitesmoke;
+}
+
 /* Responsive breakpoints */
 @media (max-width: 768px) {
   .container {

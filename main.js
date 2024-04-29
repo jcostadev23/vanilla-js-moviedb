@@ -4,7 +4,7 @@ const mainSlider = document.getElementById("swiper-wrapper");
 async function displayHeader() {
   const results = await getMoviesAndTvSHows(config.sort_by_now_playing);
 
-  results?.forEach((movie) => {
+  results?.results.forEach((movie) => {
     mainSlider.appendChild(
       headerCard(movie.id, movie.poster_path, movie.vote_average)
     );
@@ -13,7 +13,7 @@ async function displayHeader() {
 
 async function popularMovies() {
   const results = await getMoviesAndTvSHows(config.sort_by_popularity);
-  results?.forEach((movie) => {
+  results?.results.forEach((movie) => {
     ul.appendChild(
       mainCard(movie.id, movie.poster_path, movie.title, movie.release_date)
     );
