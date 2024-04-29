@@ -5,6 +5,7 @@ body {
 .container {
   background-image: url("./img/showcase-bg.jpg");
   padding: 20px;
+  margin-top: 20px;
 }
 
 h3 {
@@ -19,11 +20,25 @@ h3 {
   padding: 0 60px;
   height: 50px;
   color: white;
+  background-color: #163172;
 }
 
 .header-div span:nth-of-type(1) {
   color: rgb(255, 213, 0);
   margin-right: 10px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #163172;
+  padding: 20px 60px;
+  color: whitesmoke;
+  font-size: x-large;
+}
+
+.footer i {
+  margin-left: 10px;
 }
 
 .swiper {
