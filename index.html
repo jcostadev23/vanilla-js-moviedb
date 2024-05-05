@@ -23,10 +23,16 @@
   <body>
     <header class="header">
       <strong>FLIXX</strong>
-      <div id="header-div" class="header-div">
-        <span id="movie">Movies</span>
-        <span id="tv">TV Shows</span>
-      </div>
+      <nav id="header-div" class="header-div">
+        <ul>
+          <li>
+            <a class="nav-link" href="/">Movies</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/tv_shows.html">TV Shows</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     <div class="container">
       <h3>NOW PLAYING</h3>
@@ -41,27 +47,34 @@
         <div class="swiper-button-next"></div>
       </div>
     </div>
-    <form id="search-form" class="search-form">
-      <div class="button-group">
-        <input type="checkbox" id="movie-checkBox" name="movie-checkBox" />
-        <label for="movies-checkbox">Movies</label>
-        <input
-          type="checkbox"
-          id="tv-shows-checkBox"
-          name="tv-shows-checkBox"
-        />
-        <label for="tv-shows">TV Shows</label>
-      </div>
-      <div class="input-group">
-        <input
-          type="text"
-          id="inputField"
-          placeholder="Search Movies"
-          name="inputField"
-        />
-        <button class="search-button"><i class="fas fa-search"></i></button>
-      </div>
-    </form>
+    <section>
+      <div id="alert"></div>
+      <form id="search-form" class="search-form" action="/search.html">
+        <div class="button-group">
+          <input
+            type="radio"
+            id="movie-checkBox"
+            name="type"
+            value="movie"
+            checked
+          />
+          <label for="movies">Movies</label>
+          <input type="radio" id="tv-shows-checkBox" name="type" value="tv" />
+          <label for="tv-shows">TV Shows</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="inputField"
+            placeholder="Search Movies"
+            name="search-term"
+          />
+          <button class="search-button" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </section>
     <div class="sub-container">
       <h3 id="list-title">Popular Movies</h3>
       <ul class="main-list"></ul>

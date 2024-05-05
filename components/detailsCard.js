@@ -1,15 +1,24 @@
 function detailsCard(data) {
-  const { title, vote_average, release_date, overview, genres, homepage } =
-    data;
-  const div = document.createElement("div");
-  div.classList.add("details-card");
-  div.appendChild(displayTitle(title));
-  div.appendChild(scoreAverage(vote_average));
-  div.appendChild(displayReleaseDate(release_date));
-  div.appendChild(overView(overview));
-  div.appendChild(displayGenres(genres));
-  div.appendChild(buttonMovieHomePage(homepage));
-  return div;
+  const {
+    title,
+    name,
+    vote_average,
+    release_date,
+    first_air_date,
+    overview,
+    genres,
+    homepage,
+  } = data;
+
+  const ul = document.createElement("ul");
+  ul.classList.add("details-card");
+  ul.appendChild(displayTitle(title ?? name));
+  ul.appendChild(scoreAverage(vote_average));
+  ul.appendChild(displayReleaseDate(release_date ?? first_air_date));
+  ul.appendChild(overView(overview));
+  ul.appendChild(displayGenres(genres));
+  ul.appendChild(buttonMovieHomePage(homepage));
+  return ul;
 }
 
 function buttonMovieHomePage(url) {
@@ -23,9 +32,9 @@ function buttonMovieHomePage(url) {
 }
 
 function displayGenres(genres) {
-  const div = document.createElement("div");
-  div.classList.add("genres");
-  div.textContent = `Generes: ${genres.map((genre) => genre.name)}  `;
+  const li = document.createElement("li");
+  li.classList.add("genres");
+  li.textContent = `Generes: ${genres.map((genre) => genre.name)}  `;
 
-  return div;
+  return li;
 }

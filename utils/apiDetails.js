@@ -1,10 +1,11 @@
 const config = {
   api_key: "ce05ff67cca6fdf15e23d74914a66d1e",
-  generalUrl: `https://api.themoviedb.org/3/discover/`,
-  moviesDetailsUrl: "https://api.themoviedb.org/3/discover/movie/",
-  movieDetails: "https://api.themoviedb.org/3/movie/",
+  generalMovie: `https://api.themoviedb.org/3/movie/`,
+  generalTv: `https://api.themoviedb.org/3/tv/`,
+  popular: `popular`,
+  details: "https://api.themoviedb.org/3/",
   searchUrl: "https://api.themoviedb.org/3/search/",
-  sort_by_popularity: "popularity.dec",
-  sort_by_now_playing: "now-playing.dec",
+  now_playing: "now_playing",
   page: "page=",
+  selected_page: "/movie_details.html",
 };
