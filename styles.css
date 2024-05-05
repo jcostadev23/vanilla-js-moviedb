@@ -23,9 +23,8 @@ h3 {
   background-color: #163172;
 }
 
-.header-div span:nth-of-type(1) {
+.active_page {
   color: rgb(255, 213, 0);
-  margin-right: 10px;
 }
 
 .footer {

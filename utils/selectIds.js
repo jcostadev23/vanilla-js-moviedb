@@ -1,7 +1,7 @@
-function getIds(list) {
+function getIds(list, url) {
   Array.from(list).forEach((card) => {
     card.addEventListener("click", () => {
-      window.location.href = "details.html?id=" + card.dataset.id;
+      window.location.href = `${url}.html?id=${card.dataset.id}`;
     });
   });
 }

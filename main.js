@@ -1,13 +1,18 @@
-const url_details = new URL(window.location.href);
-const searchP_arams = new URLSearchParams(url_details.search);
 const ul = document.querySelector(".main-list");
 const mainSlider = document.getElementById("swiper-wrapper");
-const headerDiv = document.getElementById("header-div");
 
-const select1 = searchParams.get("selected");
+const global = {
+  currentPage: window.location.pathname,
+  search: {
+    term: "",
+    type: "",
+    page: 1,
+    totalPages: 1,
+  },
+};
 
-async function displayHeader(params) {
-  const results = await getMoviesAndTvSHows(params);
+async function displayHeader() {
+  const results = await getMoviesAndTvSHows();
 
   results?.results.forEach((movie) => {
     mainSlider.appendChild(
@@ -16,13 +21,29 @@ async function displayHeader(params) {
   });
 }
 
-async function popularMovies(params) {
-  const results = await getMoviesAndTvSHows(params);
+async function popularMovies() {
+  const results = await getMoviesAndTvSHows("popular");
   results?.results.forEach((movie) => {
     ul.appendChild(
       mainCard(movie.id, movie.poster_path, movie.title, movie.release_date)
     );
   });
+
+  setTimeout(() => {
+    getIds(mainSlider.children, "movie_details"),
+      getIds(ul.children, "movie_details");
+  }, 500);
+}
+
+async function popularShows() {
+  const results = await getMoviesAndTvSHows("tv");
+  results?.results.forEach((tv) => {
+    ul.appendChild(mainCard(tv.id, tv.poster_path, tv.name, tv.first_air_date));
+  });
+
+  setTimeout(() => {
+    getIds(ul.children, "tv_details");
+  }, 500);
 }
 
 async function searchOptions(formValue) {
@@ -37,19 +58,48 @@ async function searchOptions(formValue) {
   });
 }
 
-Array.from(headerDiv.children).forEach((child) => {
-  child.addEventListener("click", (e) => {
-    window.location.href = `index.html?selected=${e.target.id}`;
+function showAlert(message, className) {
+  const alertEl = document.createElement("div");
+  alertEl.classList.add("alert", className);
+  alertEl.appendChild(document.createTextNode(message));
+
+  document.querySelector("#alert").appendChild(alertEl);
+
+  setTimeout(() => alertEl.remove(), 3000);
+}
+
+function activePage() {
+  const links = document.querySelectorAll(".nav-link");
+  links.forEach((link) => {
+    if (link.getAttribute("href") === global.currentPage) {
+      link.classList.add("active_page");
+    }
   });
-});
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  const selectOptions = select1 || "movie";
-  startSwiper();
-  popularMovies({ selected: selectOptions });
-  displayHeader({ selected: selectOptions });
+function router() {
+  switch (global.currentPage) {
+    case "/":
+    case "/index.html":
+      startSwiper();
+      displayHeader();
+      popularMovies();
+      break;
+    case "/tv_shows.html":
+      popularShows();
+      break;
+    case "/movie_details.html":
+      details();
+      break;
+    case "/tv_details.html":
+      details();
+      break;
+    case "/search.html":
+      console.log("search");
+      break;
+  }
 
-  setTimeout(() => {
-    getIds(mainSlider.children), getIds(ul.children);
-  }, 500);
-});
+  activePage();
+}
+
+router();

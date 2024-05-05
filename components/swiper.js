@@ -1,20 +1,36 @@
-let swiper;
-
 function startSwiper() {
-  const slidesPerView = window.innerWidth <= 760 ? 2 : 4
-  swiper = new Swiper('.swiper', {
+  const swiper = new Swiper(".swiper", {
     // Optional parameters
-    slidesPerView: slidesPerView,
+    slidesPerView: 1,
     spaceBetween: 20,
-    direction: 'horizontal',
+    direction: "horizontal",
+    freeMode: true,
     loop: true,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: true,
+    },
+    breakpoints: {
+      500: {
+        slidesPerView: 3,
+      },
+      700: {
+        slidesPerView: 4,
+      },
+      1200: {
+        slidesPerView: 5,
+      },
+      1600: {
+        slidesPerView: 6,
+      },
+    },
 
     // Navigation arrows
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 }
 
-window.addEventListener('resize', startSwiper);
+window.addEventListener("resize", startSwiper);

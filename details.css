@@ -14,7 +14,7 @@ h2 {
   border-radius: 6px;
   border: 1px solid grey;
   margin-left: 20px;
-  color: black;
+  color: whitesmoke;
 }
 
 #btn-back:hover,
@@ -25,7 +25,6 @@ h2 {
 
 .btn-movie-home-page {
   margin-top: 30px;
-  color: black;
 }
 
 .details-container {

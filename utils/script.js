@@ -1,5 +1,14 @@
 async function getMoviesAndTvSHows(option) {
-  const new_url = validateUrl(option);
+  let new_url = `${config.generalMovie}${config.now_playing}?api_key=${config.api_key}`;
+
+  if (option === config.popular) {
+    new_url = `${config.generalMovie}${config.popular}?api_key=${config.api_key}`;
+  }
+
+  if (option === "tv") {
+    new_url = `${config.generalTv}${config.popular}?api_key=${config.api_key}`;
+  }
+
   try {
     const resp = await fetch(new_url);
     if (!resp.ok) {
@@ -14,8 +23,8 @@ async function getMoviesAndTvSHows(option) {
   }
 }
 
-async function getMoviesDetails(id) {
-  const url = `${config.movieDetails}${id}?api_key=${config.api_key}`;
+async function getDetails(id, option) {
+  const url = `${config.details}${option}/${id}?api_key=${config.api_key}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;
