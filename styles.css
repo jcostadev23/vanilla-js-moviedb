@@ -8,12 +8,19 @@ h3 {
 }
 
 .alert {
-  background: red;
   text-align: center;
   padding: 10px 30px;
   color: whitesmoke;
   border-radius: 6px;
   margin-bottom: 20px;
+}
+
+.error {
+  background: red;
+}
+
+.sucess {
+  background: rgb(49, 184, 49);
 }
 
 .container {
@@ -114,12 +121,15 @@ h3 {
 
 .pagination {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  gap: 20px;
   align-items: center;
   margin: 20px;
 }
 
-.btn-pagination {
+.btn-pagination,
+.page-counter {
   color: whitesmoke;
 }
 
