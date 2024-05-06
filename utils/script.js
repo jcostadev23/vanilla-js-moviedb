@@ -30,8 +30,8 @@ async function getDetails(id, option) {
   return data;
 }
 
-async function getSelectedOptions(options) {
-  const url = validateUrl(options);
+async function getSelectedOptions() {
+  const url = `${config.searchUrl}${global.search.type}?api_key=${config.api_key}&query=${global.search.term}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {

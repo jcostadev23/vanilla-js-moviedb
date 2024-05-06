@@ -1,3 +1,5 @@
+const url = new URL(window.location.href);
+const searchParams = new URLSearchParams(url.search);
 const ul = document.querySelector(".main-list");
 const mainSlider = document.getElementById("swiper-wrapper");
 
@@ -46,18 +48,6 @@ async function popularShows() {
   }, 500);
 }
 
-async function searchOptions(formValue) {
-  const results = await getSelectedOptions(formValue);
-  ul.innerHTML = "";
-  results?.results.forEach((item) => {
-    const title = item.title ? item.title : item.name;
-    const release_date = item.release_date
-      ? item.release_date
-      : item.first_air_date;
-    ul.appendChild(mainCard(item.id, item.poster_path, title, release_date));
-  });
-}
-
 function showAlert(message, className) {
   const alertEl = document.createElement("div");
   alertEl.classList.add("alert", className);
@@ -66,6 +56,24 @@ function showAlert(message, className) {
   document.querySelector("#alert").appendChild(alertEl);
 
   setTimeout(() => alertEl.remove(), 3000);
+}
+
+async function searchForm() {
+  global.search.type = searchParams.get("type");
+  global.search.term = searchParams.get("search-term");
+
+  if (global.search.term !== "" && global.search.term !== null) {
+    const results = await getSelectedOptions();
+    results?.results.forEach((item) => {
+      const title = item.title ? item.title : item.name;
+      const release_date = item.release_date
+        ? item.release_date
+        : item.first_air_date;
+      ul.appendChild(mainCard(item.id, item.poster_path, title, release_date));
+    });
+  } else {
+    showAlert("Please enter a search term");
+  }
 }
 
 function activePage() {
@@ -95,7 +103,7 @@ function router() {
       details();
       break;
     case "/search.html":
-      console.log("search");
+      searchForm();
       break;
   }
 

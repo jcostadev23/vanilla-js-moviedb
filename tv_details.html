@@ -3,18 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="resetStyles.css" />
     <link rel="stylesheet" href="details.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header class="header">
+      <a class="nav-link" href="/">FLIXX</a>
+      <nav id="header-div" class="header-div">
+        <ul>
+          <li>
+            <a class="nav-link" href="/index.html">Movies</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/tv_shows.html">TV Shows</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <div id="container"></div>
     <h2 id="title"></h2>
     <button id="btn-back">Back to movies</button>
     <div id="details-container" class="details-container">
       <div id="details-list" class="details-list"></div>
     </div>
-
     <script src="./utils/apiDetails.js"></script>
     <script src="./utils/script.js"></script>
     <script src="./utils/validation.js"></script>
