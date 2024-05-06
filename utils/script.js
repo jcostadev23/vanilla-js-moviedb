@@ -31,7 +31,7 @@ async function getDetails(id, option) {
 }
 
 async function getSelectedOptions() {
-  const url = `${config.searchUrl}${global.search.type}?api_key=${config.api_key}&query=${global.search.term}`;
+  const url = `${config.searchUrl}${global.search.type}?api_key=${config.api_key}&query=${global.search.term}&page=${global.search.page}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
