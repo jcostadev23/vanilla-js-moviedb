@@ -3,12 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="resetStyles.css" />
+    <link rel="stylesheet" href="searchStyles.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="header">
-      <strong>FLIXX</strong>
+      <a class="nav-link" href="/">FLIXX</a>
       <nav id="header-div" class="header-div">
         <ul>
           <li>
@@ -20,6 +33,34 @@
         </ul>
       </nav>
     </header>
+    <section>
+      <div id="alert"></div>
+      <form id="search-form" class="search-form" action="/search.html">
+        <div class="button-group">
+          <input
+            type="radio"
+            id="movie-checkBox"
+            name="type"
+            value="movie"
+            checked
+          />
+          <label for="movies">Movies</label>
+          <input type="radio" id="tv-shows-checkBox" name="type" value="tv" />
+          <label for="tv-shows">TV Shows</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="inputField"
+            placeholder="Search Movies"
+            name="search-term"
+          />
+          <button class="search-button" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </section>
     <div class="container">
       <h3 id="list-title">Popula Tv Shows</h3>
       <ul class="main-list"></ul>

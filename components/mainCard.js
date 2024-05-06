@@ -32,9 +32,10 @@ function displayReleaseDate(release) {
 
 function image(imgUrl) {
   const picBaseUrl = "https://image.tmdb.org/t/p/w300/";
+  const imageValidation = imgUrl ? picBaseUrl + imgUrl : "./img/no-image.jpg";
   const img = document.createElement("img");
   img.classList.add("img-swiper");
-  img.src = picBaseUrl + imgUrl;
+  img.src = imageValidation;
 
   return img;
 }

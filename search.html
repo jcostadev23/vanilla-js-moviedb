@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="resetStyles.css" />
+    <link rel="stylesheet" href="searchStyles.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <strong>FLIXX</strong>
+      <nav id="header-div" class="header-div">
+        <ul>
+          <li>
+            <a class="nav-link" href="/">Movies</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/tv_shows.html">TV Shows</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Search Movies -->
+    <section>
+      <div id="alert"></div>
+      <form id="search-form" class="search-form" action="/search.html">
+        <div class="button-group">
+          <input
+            type="radio"
+            id="movie-checkBox"
+            name="type"
+            value="movie"
+            checked
+          />
+          <label for="movies">Movies</label>
+          <input type="radio" id="tv-shows-checkBox" name="type" value="tv" />
+          <label for="tv-shows">TV Shows</label>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="inputField"
+            placeholder="Search Movies"
+            name="search-term"
+          />
+          <button class="search-button" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <div class="sub-container">
+      <ul class="main-list"></ul>
+    </div>
+    <div class="pagination">
+      <button id="prevPage" class="btn-pagination">
+        <i class="fas fa-chevron-left"></i>
+        Back
+      </button>
+      <button id="nextPage" class="btn-pagination">
+        Next
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+    <footer class="footer">
+      <strong>FLIXX</strong>
+      <span>JCostadev23</span>
+      <div>
+        <i class="fab fa-facebook"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-linkedin"></i>
+      </div>
+    </footer>
+    <script src="./utils/apiDetails.js"></script>
+    <script src="./utils/validation.js"></script>
+    <script src="./components/mainCard.js"></script>
+    <script src="./utils/script.js"></script>
+    <script src="main.js"></script>
+    <div class="spinner"></div>
+  </body>
+</html>
