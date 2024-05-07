@@ -16,7 +16,6 @@ const global = {
 
 async function displayHeader() {
   const { results } = await getMoviesAndTvSHows();
-
   results.forEach((movie) => {
     mainSlider.appendChild(
       headerCard(movie.id, movie.poster_path, movie.vote_average)

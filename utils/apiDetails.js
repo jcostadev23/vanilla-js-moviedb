@@ -5,4 +5,5 @@ const config = {
   popular: `popular`,
   details: "https://api.themoviedb.org/3/",
   searchUrl: "https://api.themoviedb.org/3/search/",
+  now_playing: "now_playing",
 };
